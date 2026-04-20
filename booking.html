@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table | Pizza & Burger Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        .booking-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .booking-form-box { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 35px; padding: 3.5rem; backdrop-filter: blur(20px); }
+        .form-input { 
+            width: 100%; background: rgba(255,255,255,0.03); color: white; border: 1px solid var(--glass-border); 
+            padding: 16px; margin-bottom: 1.5rem; border-radius: 15px; font-family: inherit; font-size: 1rem;
+        }
+        .form-input:focus { border-color: var(--accent-gold); outline: none; background: rgba(255,255,255,0.06); }
+        
+        .stepper { display: flex; align-items: center; gap: 1rem; background: var(--bg-card); padding: 10px 20px; border-radius: 50px; border: 1px solid var(--glass-border); width: fit-content; }
+        .step-btn { width: 35px; height: 35px; border-radius: 50%; border: none; background: rgba(255,255,255,0.1); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .step-btn:hover { background: var(--primary-crimson); }
+        
+        @media (max-width: 900px) { .booking-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PIZZA & BURGER <span>HUB</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="booking.html" class="active">Booking</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+        </ul>
+        <div class="nav-right"><a href="menu.html" class="btn-luxury" style="padding: 10px 25px;">Go to Menu</a></div>
+    </nav>
+
+    <main class="section-padding" style="margin-top: 50px;">
+        <div class="booking-grid">
+            <div class="booking-visual">
+                <span style="color: var(--accent-gold); letter-spacing: 2px;">Plan Your Visit</span>
+                <h1 class="heading-luxury">Book Your <br><span>Favorite Spot</span></h1>
+                <p style="color: var(--text-dim); margin-bottom: 3rem; font-size: 1.1rem; max-width: 500px;">Aaiye aur apne doston ke saath sukoon se khayein. Hum aapki seat pehle hi reserve kar denge!</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="glass-card" style="padding: 1.5rem;"><h3 style="color: var(--accent-gold); margin-bottom:0.5rem;">Family Zone</h3><p style="font-size: 0.7rem; opacity: 0.5;">Pure family ke saath maze karein, extra space milega.</p></div>
+                    <div class="glass-card" style="padding: 1.5rem;"><h3 style="color: var(--accent-gold); margin-bottom:0.5rem;">Couples Corner</h3><p style="font-size: 0.7rem; opacity: 0.5;">Shant area for a beautiful date night experience.</p></div>
+                </div>
+            </div>
+
+            <div class="booking-form-box">
+                <form id="booking-form">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.6rem;">Reservation Form</h3>
+                    
+                    <input type="text" class="form-input" placeholder="Aapka Naam (Name)" required>
+                    <input type="tel" class="form-input" placeholder="Phone Number" required>
+                    <input type="date" class="form-input" id="booking-date" required>
+
+                    <p style="margin-bottom: 1rem; opacity: 0.5; font-size: 0.8rem; text-transform: uppercase;">Select Time Slot</p>
+                    <div class="slots-grid">
+                        <div class="time-pill" data-time="12:00 PM">12:00 PM</div>
+                        <div class="time-pill" data-time="02:00 PM">02:00 PM</div>
+                        <div class="time-pill" data-time="06:00 PM">06:00 PM</div>
+                        <div class="time-pill" data-time="08:00 PM">08:00 PM</div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                        <span style="opacity: 0.6;">Total Guests (Kitne log?)</span>
+                        <div class="stepper">
+                            <button type="button" class="step-btn" id="guest-minus"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="guest-count" value="2" readonly style="background:transparent; border:none; color:white; width:30px; text-align:center; font-weight:700;">
+                            <button type="button" class="step-btn" id="guest-plus"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-luxury" style="width: 100%; margin-top: 2.5rem;">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:2000; justify-content:center; align-items:center;">
+        <div class="glass-card" style="text-align:center; max-width:450px; padding: 4rem;">
+            <div style="width:80px; height:80px; background:var(--accent-gold); color:black; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 2rem;"><i class="fas fa-check"></i></div>
+            <h2 style="margin-bottom:1rem; font-family:'Playfair Display'; font-style:italic;">Booking Ho Gayi!</h2>
+            <p style="opacity:0.6; margin-bottom:2.5rem;">Aapki table reserve ho chuki hai. Hum aapka intezaar karenge!</p>
+            <a href="index.html" class="btn-luxury">Go Back Home</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

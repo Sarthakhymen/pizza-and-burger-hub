@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Pizza & Burger Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        .menu-container { display: flex; gap: 3rem; align-items: flex-start; }
+        .main-menu { flex: 1; }
+        .side-cart { width: 380px; position: sticky; top: 120px; }
+        
+        .filter-pill { 
+            padding: 10px 25px; border: 1px solid var(--glass-border); border-radius: 50px; 
+            cursor: pointer; transition: 0.3s; background: var(--bg-card); font-size: 0.8rem;
+        }
+        .filter-pill.active { background: var(--primary-crimson); border-color: var(--primary-crimson); color: white; }
+        
+        .cart-luxury { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 30px; padding: 2.5rem; backdrop-filter: blur(20px); }
+        .cart-item-luxury { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; }
+        
+        @media (max-width: 1100px) { .menu-container { flex-direction: column; } .side-cart { width: 100%; position: relative; top: 0; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PIZZA & BURGER <span>HUB</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html" class="active">Menu</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+        </ul>
+        <div class="nav-right"><div class="btn-luxury" style="padding: 10px 20px;"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></div></div>
+    </nav>
+
+    <main class="section-padding" style="margin-top: 50px;">
+        <div style="text-align: center; margin-bottom: 5rem;">
+            <span style="color: var(--accent-gold); letter-spacing: 3px;">Freshly Made For You</span>
+            <h1 class="heading-luxury">Explore Our <span>Kitchen</span></h1>
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+                <div class="filter-pill active" data-cat="all">Everything</div>
+                <div class="filter-pill" data-cat="pizza">Hot Pizzas</div>
+                <div class="filter-pill" data-cat="burger">Juicy Burgers</div>
+            </div>
+        </div>
+
+        <div class="menu-container">
+            <div class="main-menu">
+                <div class="menu-grid" id="main-menu-grid">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+
+            <aside class="side-cart">
+                <div class="cart-luxury">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">Your <span>Food Cart</span></h3>
+                    <div id="cart-items-list">
+                        <p style="opacity: 0.4;">Khaali hai! Kuch masaledaar add karein.</p>
+                    </div>
+                    <div style="margin-top: 2rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;"><span style="opacity: 0.5;">Items Total</span><span id="subtotal">₹0</span></div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;"><span style="opacity: 0.5;">Delivery Fee</span><span id="delivery-fee">₹0</span></div>
+                        <div style="display: flex; justify-content: space-between; font-size: 1.8rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 2rem;"><span>Total Bill</span><span id="total-price">₹0</span></div>
+                        <button class="btn-luxury" style="width: 100%;" id="proceed-checkout">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:2000; justify-content:center; align-items:center;">
+        <div class="glass-card" style="max-width:500px; width:90%; padding: 3rem;">
+            <h2 style="margin-bottom:2rem; font-family:'Playfair Display'; font-style:italic;">Order <span>Details</span></h2>
+            <form id="firebase-order-form">
+                <input type="text" id="cust-name" placeholder="Aapka Naam (Name)" required style="width:100%; background:rgba(255,255,255,0.05); color:white; border:1px solid rgba(255,255,255,0.1); padding:15px; margin-bottom:15px; border-radius:15px;">
+                <input type="tel" id="cust-phone" placeholder="Phone No." required style="width:100%; background:rgba(255,255,255,0.05); color:white; border:1px solid rgba(255,255,255,0.1); padding:15px; margin-bottom:15px; border-radius:15px;">
+                <textarea id="cust-address" placeholder="Delivery Address (Ghar ka pata)" required style="width:100%; background:rgba(255,255,255,0.05); color:white; border:1px solid rgba(255,255,255,0.1); padding:15px; height:100px; margin-bottom:15px; border-radius:15px;"></textarea>
+                <select id="cust-type" style="width:100%; background:rgba(255,255,255,0.05); color:white; border:1px solid rgba(255,255,255,0.1); padding:15px; margin-bottom:2rem; border-radius:15px;">
+                    <option value="delivery">Home Delivery</option>
+                    <option value="pickup">Self Pickup</option>
+                </select>
+                <div style="display:flex; gap:15px;">
+                    <button type="button" class="btn-luxury" style="background:transparent; border:1px solid rgba(255,255,255,0.2);" onclick="document.getElementById('checkout-modal-overlay').style.display='none'">Back</button>
+                    <button type="submit" class="btn-luxury" style="flex:1;">Confirm Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        async function loadMenu(cat = 'all') {
+            const grid = document.getElementById('main-menu-grid');
+            const res = await fetch('http://localhost:5500/api/menu');
+            const items = await res.json();
+            const filtered = cat === 'all' ? items : items.filter(i => i.category === cat);
+            
+            grid.innerHTML = filtered.map(i => `
+                <div class="food-card glass-card">
+                    ${!i.available ? '<div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10; display:flex; align-items:center; justify-content:center; color:white; font-weight:800;">OUT OF STOCK</div>' : ''}
+                    <img src="${i.img}">
+                    <div class="food-info">
+                        <h3>${i.name}</h3>
+                        <p>${i.category.toUpperCase()} • FRESH</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2rem;">
+                            <span style="font-size:1.5rem; font-weight:800; color:var(--accent-gold);">₹${i.price}</span>
+                            ${i.available ? `<button class="btn-luxury add-to-cart" style="padding:10px 20px;" 
+                                data-id="${i.id}" data-name="${i.name}" data-price="${i.price}">ADD +</button>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            attachCartListeners();
+        }
+
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.onclick = () => {
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                loadMenu(pill.dataset.cat);
+            };
+        });
+
+        io().on('menuUpdated', () => loadMenu(document.querySelector('.filter-pill.active').dataset.cat));
+        loadMenu();
+    </script>
+</body>
+</html>

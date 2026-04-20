@@ -1,0 +1,175 @@
+/* 
+    PIZZA & BURGER HUB - LUXURY DESIGN SYSTEM (CORE)
+    "World Class UI/UX"
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,700&display=swap');
+
+:root {
+    --primary-crimson: #e63946;
+    --accent-gold: #ffb703;
+    --bg-dark: #0f0f0f;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8f9fa;
+    --text-dim: #adb5bd;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--primary-crimson); border-radius: 10px; }
+
+/* Global Layout Utilities */
+.section-padding { padding: 100px 8%; }
+.heading-luxury {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-style: italic;
+    background: linear-gradient(to right, #fff, var(--accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+/* Navbar Luxury */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+.logo span { color: var(--primary-crimson); text-shadow: 0 0 15px var(--primary-crimson); }
+
+.nav-links { display: flex; list-style: none; gap: 3rem; }
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text-main); letter-spacing: 1px; }
+
+/* Buttons Premium */
+.btn-luxury {
+    background: var(--primary-crimson);
+    color: white;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.3);
+}
+.btn-luxury:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(230, 57, 70, 0.5); }
+
+/* Glass Cards */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 2rem;
+    transition: var(--transition);
+}
+.glass-card:hover { 
+    background: rgba(255, 255, 255, 0.06); 
+    border-color: var(--accent-gold); 
+    transform: translateY(-10px);
+}
+
+/* Menu Grid UI */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+.food-card { position: relative; overflow: hidden; height: 450px; }
+.food-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+.food-card:hover img { transform: scale(1.1); filter: brightness(0.4); }
+
+.food-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    transform: translateY(50px);
+    opacity: 0;
+    transition: var(--transition);
+}
+.food-card:hover .food-info { transform: translateY(0); opacity: 1; }
+
+/* Toast / Alerts */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-crimson);
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(150%);
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 9999;
+}
+.toast.show { transform: translateY(0); }
+
+/* Orders / Tracking UI */
+.track-step { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; opacity: 0.3; transition: 0.5s; }
+.track-step.active { opacity: 1; transform: scale(1.05); }
+.step-icon {
+    width: 50px; height: 50px; background: var(--bg-card); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.active .step-icon { background: var(--primary-crimson); box-shadow: 0 0 20px var(--primary-crimson); }
+
+/* Booking UI */
+.slots-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+.time-pill {
+    padding: 12px; text-align: center; border: 1px solid var(--glass-border); border-radius: 12px;
+    cursor: pointer; transition: 0.3s;
+}
+.time-pill:hover { border-color: var(--accent-gold); }
+.time-pill.selected { background: var(--accent-gold); color: black; border-color: var(--accent-gold); font-weight: 700; }
+
+@media (max-width: 768px) {
+    .heading-luxury { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Mobile Menu should be added later */
+}

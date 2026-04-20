@@ -1,0 +1,305 @@
+{
+  "orders": [
+    {
+      "id": "PBH-MM7BCZ",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "gbgg",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "4",
+          "name": "The Mighty Beef",
+          "price": 349,
+          "qty": 1
+        }
+      ],
+      "total": 389,
+      "status": "Delivered",
+      "createdAt": "2026-04-20T19:04:48.072Z"
+    },
+    {
+      "id": "PBH-8W2PRY",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "fff",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "5",
+          "name": "Spicy Paneer Hub",
+          "price": 299,
+          "qty": 1
+        }
+      ],
+      "total": 339,
+      "status": "Delivered",
+      "createdAt": "2026-04-20T19:01:57.735Z"
+    },
+    {
+      "id": "PBH-E3DGR3",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "5",
+          "name": "Spicy Paneer Hub",
+          "price": 299,
+          "qty": 1
+        }
+      ],
+      "total": 339,
+      "status": "Preparing",
+      "createdAt": "2026-04-20T18:52:21.521Z"
+    },
+    {
+      "id": "PBH-CPHJS4",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "2",
+          "name": "The Golden Burger",
+          "price": 749,
+          "qty": 1
+        }
+      ],
+      "total": 789,
+      "status": "Preparing",
+      "createdAt": "2026-04-20T18:42:44.259Z"
+    },
+    {
+      "id": "PBH-EPEMU0",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "6",
+          "name": "Double Chicken Feast",
+          "price": 1399,
+          "img": "https://placehold.co/400x300/C0392B/FFF8F0?text=Double+Chicken",
+          "qty": 1
+        }
+      ],
+      "subtotal": 1399,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 1439,
+      "createdAt": "2026-04-20T18:25:41.825Z"
+    },
+    {
+      "id": "PBH-H58MAY",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "10",
+          "name": "Hub Special Cola",
+          "price": 199,
+          "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cola",
+          "qty": 1
+        }
+      ],
+      "subtotal": 199,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 239,
+      "createdAt": "2026-04-20T18:24:58.441Z"
+    },
+    {
+      "id": "PBH-GHBEHF",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "10",
+          "name": "Hub Special Cola",
+          "price": 199,
+          "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cola",
+          "qty": 2
+        },
+        {
+          "id": "9",
+          "name": "Peri Peri Fries",
+          "price": 349,
+          "img": "https://placehold.co/400x300/C0392B/FFF8F0?text=Fries",
+          "qty": 1
+        },
+        {
+          "id": "8",
+          "name": "Veggie Classic",
+          "price": 649,
+          "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Veggie+Classic",
+          "qty": 1
+        }
+      ],
+      "subtotal": 1396,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 1436,
+      "createdAt": "2026-04-20T18:21:52.509Z"
+    },
+    {
+      "id": "PBH-QCM08X",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "9",
+          "name": "Peri Peri Fries",
+          "price": 349,
+          "img": "https://placehold.co/400x300/C0392B/FFF8F0?text=Fries",
+          "qty": 1
+        }
+      ],
+      "subtotal": 349,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 389,
+      "createdAt": "2026-04-20T17:54:02.347Z"
+    },
+    {
+      "id": "PBH-VDGBX3",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "10",
+          "name": "Hub Special Cola",
+          "price": 199,
+          "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cola",
+          "qty": 1
+        }
+      ],
+      "subtotal": 199,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 239,
+      "createdAt": "2026-04-20T17:46:48.669Z"
+    },
+    {
+      "id": "PBH-YE0H84",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "10",
+          "name": "Hub Special Cola",
+          "price": 199,
+          "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cola",
+          "qty": 1
+        }
+      ],
+      "subtotal": 199,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 239,
+      "createdAt": "2026-04-20T17:43:26.814Z"
+    },
+    {
+      "id": "PBH-442UCP",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "I-529/8 Gali No.9 Hari Nagar extn,Jaitpur, badarpur,New delhi-110044\ndelhi",
+      "type": "delivery",
+      "paymentMethod": "COD",
+      "items": [
+        {
+          "id": "10",
+          "name": "Hub Special Cola",
+          "price": 199,
+          "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cola",
+          "qty": 1
+        }
+      ],
+      "subtotal": 199,
+      "deliveryFee": 40,
+      "status": "Delivered",
+      "total": 239,
+      "createdAt": "2026-04-20T17:42:41.198Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "BKN-ET0568",
+      "name": "sarthak",
+      "phone": "9625410112",
+      "date": "2026-04-22",
+      "timeSlot": "12:00 PM",
+      "guests": "3",
+      "createdAt": "2026-04-20T18:59:50.909Z"
+    }
+  ],
+  "menu": [
+    {
+      "id": "1",
+      "name": "The Hub Special",
+      "price": 499,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400",
+      "available": true
+    },
+    {
+      "id": "2",
+      "name": "Margherita Hub",
+      "price": 399,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400",
+      "available": true
+    },
+    {
+      "id": "3",
+      "name": "Double Cheese Hub",
+      "price": 549,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1571066811402-9d8d77c84439?w=400",
+      "available": true
+    },
+    {
+      "id": "4",
+      "name": "The Mighty Beef",
+      "price": 349,
+      "category": "burger",
+      "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400",
+      "available": true
+    },
+    {
+      "id": "5",
+      "name": "Spicy Paneer Hub",
+      "price": 299,
+      "category": "burger",
+      "img": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400",
+      "available": true
+    },
+    {
+      "id": "6",
+      "name": "Chicken Zinger Hub",
+      "price": 329,
+      "category": "burger",
+      "img": "https://images.unsplash.com/photo-1512152272829-e3139592d56f?w=400",
+      "available": true
+    }
+  ]
+}

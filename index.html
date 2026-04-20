@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza & Burger Hub | Best Fast Food in Town</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PIZZA & BURGER <span>HUB</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="booking.html">Book a Table</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="menu.html" class="btn-luxury" style="padding: 10px 25px;">Order Now</a>
+        </div>
+    </nav>
+
+    <header class="section-padding" style="min-height: 100vh; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070') center/cover no-repeat; position: relative;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, #0f0f0f, rgba(15, 15, 15, 0.4));"></div>
+        
+        <div style="position: relative; z-index: 10; max-width: 700px;">
+            <span style="color: var(--accent-gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; font-size: 0.8rem;">Dil se Banaya, Swad ka Tadka</span>
+            <h1 class="heading-luxury">Delicious <br><span>Pizza & Burgers</span></h1>
+            <p style="font-size: 1.1rem; color: var(--text-dim); margin-bottom: 3rem;">Garma-garam Pizza aur Juicy Burgers, ab seedha aapke ghar! Fresh ingredients aur best taste ki guarantee.</p>
+            
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="menu.html" class="btn-luxury">See Our Menu</a>
+                <a href="booking.html" class="btn-luxury" style="background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);">Book a Table</a>
+            </div>
+            
+            <div style="display: flex; gap: 3rem; margin-top: 4rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+                <div><h3 style="font-size: 2rem;">50k+</h3><p style="font-size: 0.7rem; color: var(--text-dim);">Happy Foodies</p></div>
+                <div><h3 style="font-size: 2rem;">100+</h3><p style="font-size: 0.7rem; color: var(--text-dim);">Dishes</p></div>
+                <div><h3 style="font-size: 2rem;">4.9</h3><p style="font-size: 0.7rem; color: var(--text-dim);">Google Rating</p></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem;">
+            <div>
+                <span style="color: var(--primary-crimson); font-weight: 600;">People's Favorite</span>
+                <h2 style="font-size: 2.5rem;">Most Ordered Items</h2>
+            </div>
+            <a href="menu.html" style="color: var(--accent-gold); text-decoration: none; border-bottom: 1px solid;">View Full Menu</a>
+        </div>
+
+        <div class="menu-grid">
+            <div class="glass-card food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400">
+                <div class="food-info">
+                    <h3>The Big Boss Burger</h3>
+                    <p>Hamara sabse juicy beef burger with extra cheese.</p>
+                    <a href="menu.html" class="btn-luxury" style="display: inline-block; margin-top: 1rem; width: 100%; text-align: center;">Add to Cart</a>
+                </div>
+            </div>
+            <div class="glass-card food-card">
+                <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400">
+                <div class="food-info">
+                    <h3>Cheese Burst Margherita</h3>
+                    <p>Loads of mozarella cheese, classic taste.</p>
+                    <a href="menu.html" class="btn-luxury" style="display: inline-block; margin-top: 1rem; width: 100%; text-align: center;">Add to Cart</a>
+                </div>
+            </div>
+            <div class="glass-card food-card">
+                <img src="https://images.unsplash.com/photo-1512152272829-e3139592d56f?w=400">
+                <div class="food-info">
+                    <h3>Zinger Chicken Hub</h3>
+                    <p>Crispy chicken patty with spicy hub sauce.</p>
+                    <a href="menu.html" class="btn-luxury" style="display: inline-block; margin-top: 1rem; width: 100%; text-align: center;">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: rgba(255,255,255,0.02);">
+        <center>
+            <span style="color: var(--accent-gold);">Party or Date?</span>
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Book Your Table Now</h2>
+            <p style="max-width: 600px; color: var(--text-dim); margin-bottom: 3rem;">Line mein khade rehne ki zaroorat nahi. Pehle se table book karein aur sukoon se khayein.</p>
+            <a href="booking.html" class="btn-luxury">Click here to Book</a>
+        </center>
+    </section>
+
+    <footer class="section-padding" style="border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="logo" style="margin-bottom: 2rem;">PIZZA & BURGER <span>HUB</span></div>
+        <p style="color: var(--text-dim); margin-bottom: 2rem;">Taste waisa, jo yaad rahe hamesha!</p>
+        <div style="display: flex; justify-content: center; gap: 2rem;">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.3;">&copy; 2026 Pizza & Burger Hub. Built for the Foodies.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

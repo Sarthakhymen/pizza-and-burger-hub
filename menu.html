@@ -94,28 +94,55 @@
 
     <script src="script.js"></script>
     <script>
+        let menuCache = null;
+        let menuLoading = false;
+
         async function loadMenu(cat = 'all') {
-            const grid = document.getElementById('main-menu-grid');
-            const res = await fetch('http://localhost:5500/api/menu');
-            const items = await res.json();
-            const filtered = cat === 'all' ? items : items.filter(i => i.category === cat);
+            if (menuLoading) return;
+            menuLoading = true;
             
-            grid.innerHTML = filtered.map(i => `
-                <div class="food-card glass-card">
-                    ${!i.available ? '<div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10; display:flex; align-items:center; justify-content:center; color:white; font-weight:800;">OUT OF STOCK</div>' : ''}
-                    <img src="${i.img}">
-                    <div class="food-info">
-                        <h3>${i.name}</h3>
-                        <p>${i.category.toUpperCase()} • FRESH</p>
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2rem;">
-                            <span style="font-size:1.5rem; font-weight:800; color:var(--accent-gold);">₹${i.price}</span>
-                            ${i.available ? `<button class="btn-luxury add-to-cart" style="padding:10px 20px;" 
-                                data-id="${i.id}" data-name="${i.name}" data-price="${i.price}">ADD +</button>` : ''}
+            const grid = document.getElementById('main-menu-grid');
+            
+            try {
+                // Show loading state only on first load
+                if (!menuCache) {
+                    grid.innerHTML = '<div style="text-align:center; padding:3rem; opacity:0.3; grid-column:1/-1;"><i class="fas fa-spinner fa-spin" style="font-size:2rem;"></i><p style="margin-top:1rem;">Menu load ho raha hai...</p></div>';
+                }
+                
+                const items = await apiFetch(API_URL + '/menu');
+                menuCache = items;
+                
+                const filtered = cat === 'all' ? items : items.filter(i => i.category === cat);
+                
+                if (filtered.length === 0) {
+                    grid.innerHTML = '<div style="text-align:center; padding:3rem; opacity:0.3; grid-column:1/-1;"><p>Is category mein koi item nahi hai</p></div>';
+                    return;
+                }
+                
+                grid.innerHTML = filtered.map(i => `
+                    <div class="food-card glass-card" style="position:relative;">
+                        ${!i.available ? '<div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; font-weight:800; border-radius:25px;"><i class="fas fa-ban" style="font-size:2rem; margin-bottom:10px; opacity:0.5;"></i>OUT OF STOCK</div>' : ''}
+                        <img src="${i.img}" loading="lazy" alt="${i.name}" onerror="this.src='https://placehold.co/400x300/111/fff?text=No+Image'">
+                        <div class="food-info">
+                            <h3>${i.name}</h3>
+                            <p>${(i.category || 'food').toUpperCase()} • FRESH</p>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2rem;">
+                                <span style="font-size:1.5rem; font-weight:800; color:var(--accent-gold);">₹${i.price}</span>
+                                ${i.available ? `<button class="btn-luxury add-to-cart" style="padding:10px 20px;" 
+                                    data-id="${i.id}" data-name="${i.name}" data-price="${i.price}">ADD +</button>` : ''}
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
-            attachCartListeners();
+                `).join('');
+                attachCartListeners();
+            } catch (err) {
+                console.error('Menu load error:', err);
+                if (!menuCache) {
+                    grid.innerHTML = '<div style="text-align:center; padding:3rem; color:var(--primary-crimson); grid-column:1/-1;"><i class="fas fa-exclamation-triangle" style="font-size:2rem; margin-bottom:1rem;"></i><p>Menu load nahi ho paaya</p><button class="btn-luxury" style="margin-top:1rem;" onclick="loadMenu()">Retry</button></div>';
+                }
+            } finally {
+                menuLoading = false;
+            }
         }
 
         document.querySelectorAll('.filter-pill').forEach(pill => {
@@ -126,7 +153,13 @@
             };
         });
 
-        io().on('menuUpdated', () => loadMenu(document.querySelector('.filter-pill.active').dataset.cat));
+        // Reuse the socket from script.js (no duplicate connection!)
+        socket.on('menuUpdated', () => {
+            menuCache = null; // clear cache
+            const activeCat = document.querySelector('.filter-pill.active');
+            loadMenu(activeCat ? activeCat.dataset.cat : 'all');
+        });
+        
         loadMenu();
     </script>
 </body>

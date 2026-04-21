@@ -23,23 +23,41 @@
         </div>
     </nav>
 
-    <header class="section-padding" style="min-height: 100vh; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070') center/cover no-repeat; position: relative;">
-        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, #0f0f0f, rgba(15, 15, 15, 0.4));"></div>
-        
-        <div style="position: relative; z-index: 10; max-width: 700px;">
-            <span style="color: var(--accent-gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; font-size: 0.8rem;">Dil se Banaya, Swad ka Tadka</span>
-            <h1 class="heading-luxury">Delicious <br><span>Pizza & Burgers</span></h1>
-            <p style="font-size: 1.1rem; color: var(--text-dim); margin-bottom: 3rem;">Garma-garam Pizza aur Juicy Burgers, ab seedha aapke ghar! Fresh ingredients aur best taste ki guarantee.</p>
-            
-            <div style="display: flex; gap: 1.5rem;">
-                <a href="menu.html" class="btn-luxury">See Our Menu</a>
-                <a href="booking.html" class="btn-luxury" style="background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);">Book a Table</a>
+    <header class="section-padding hero-section">
+        <!-- New Background Effect -->
+        <div class="hero-bg"></div>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <span class="dil-se-tag">Dil se Banaya, Swad ka Tadka</span>
+                <h1 class="heading-luxury">Delicious <br><span class="highlight-crimson">Pizza & Burgers</span></h1>
+                <p class="hero-desc">Garma-garam Pizza aur Juicy Burgers, ab seedha aapke ghar! Fresh ingredients aur best taste ki guarantee.</p>
+                
+                <div style="display: flex; gap: 1.5rem; margin-top: 1rem;">
+                    <a href="menu.html" class="btn-luxury">See Our Menu</a>
+                    <a href="booking.html" class="btn-luxury btn-outline">Book a Table</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item"><h3 class="counter" data-target="50000">0</h3><p>Happy Foodies</p></div>
+                    <div class="stat-item"><h3 class="counter" data-target="150">0</h3><p>Dishes</p></div>
+                    <div class="stat-item"><h3 class="counter" data-target="4.9">0.0</h3><p>Google Rating</p></div>
+                </div>
             </div>
-            
-            <div style="display: flex; gap: 3rem; margin-top: 4rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
-                <div><h3 style="font-size: 2rem;">50k+</h3><p style="font-size: 0.7rem; color: var(--text-dim);">Happy Foodies</p></div>
-                <div><h3 style="font-size: 2rem;">100+</h3><p style="font-size: 0.7rem; color: var(--text-dim);">Dishes</p></div>
-                <div><h3 style="font-size: 2rem;">4.9</h3><p style="font-size: 0.7rem; color: var(--text-dim);">Google Rating</p></div>
+
+            <!-- Rotating Pizza & Floating Burger -->
+            <div class="hero-visuals">
+                <div class="visual-container">
+                    <!-- Base glow behind pizza -->
+                    <div class="pizza-glow"></div>
+                    <img src="pizza.png" alt="Delicious Pizza" class="rotating-pizza">
+                    
+                    <!-- Floating Burger intersecting the pizza -->
+                    <img src="burger.png" alt="Juicy Burger" class="floating-burger">
+                    
+                    <!-- Little floating elements (leaves/chili) -->
+                    <div class="float-element leaf1">🌿</div>
+                    <div class="float-element chili1">🌶️</div>
+                </div>
             </div>
         </div>
     </header>

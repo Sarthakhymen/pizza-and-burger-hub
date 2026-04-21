@@ -51,7 +51,7 @@
         }
       ],
       "total": 339,
-      "status": "Preparing",
+      "status": "Delivered",
       "createdAt": "2026-04-20T18:52:21.521Z"
     },
     {
@@ -69,7 +69,7 @@
         }
       ],
       "total": 789,
-      "status": "Preparing",
+      "status": "Delivered",
       "createdAt": "2026-04-20T18:42:44.259Z"
     },
     {
@@ -239,6 +239,171 @@
       "status": "Delivered",
       "total": 239,
       "createdAt": "2026-04-20T17:42:41.198Z"
+    },
+    {
+      "id": "PBH-YAGZCE",
+      "createdAt": "2026-04-21T10:32:03.136Z",
+      "status": "Delivered",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "09625410112",
+      "custAddress": "vfvgb ",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "5",
+          "name": "Spicy Paneer Hub",
+          "price": 299,
+          "qty": 1
+        }
+      ],
+      "total": 339
+    },
+    {
+      "id": "PBH-MPVJ8J",
+      "createdAt": "2026-04-21T10:33:44.429Z",
+      "status": "Delivered",
+      "custName": "vbbbbb",
+      "custPhone": "8595866684",
+      "custAddress": "fvvv",
+      "type": "pickup",
+      "items": [
+        {
+          "id": "6",
+          "name": "Chicken Zinger Hub",
+          "price": 329,
+          "qty": 1
+        }
+      ],
+      "total": 329
+    },
+    {
+      "id": "PBH-XB5QR1",
+      "createdAt": "2026-04-21T10:36:28.817Z",
+      "status": "Delivered",
+      "custName": "kavya",
+      "custPhone": "8595866684",
+      "custAddress": "bvgvgv",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "1",
+          "name": "The Hub Special",
+          "price": 499,
+          "qty": 1
+        }
+      ],
+      "total": 539
+    },
+    {
+      "id": "PBH-CT1VQZ",
+      "createdAt": "2026-04-21T10:45:18.474Z",
+      "status": "Delivered",
+      "custName": "kajal",
+      "custPhone": "9891467021",
+      "custAddress": "bbbbb",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "4",
+          "name": "The Mighty Beef",
+          "price": 349,
+          "qty": 1
+        }
+      ],
+      "total": 389
+    },
+    {
+      "id": "PBH-QBXBD1",
+      "createdAt": "2026-04-21T10:49:56.329Z",
+      "status": "Delivered",
+      "custName": "harsh",
+      "custPhone": "9625410112",
+      "custAddress": "pizza and burger hub",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "5",
+          "name": "Spicy Paneer Hub",
+          "price": 299,
+          "qty": 2
+        }
+      ],
+      "total": 638
+    },
+    {
+      "id": "PBH-Y2DVJH",
+      "createdAt": "2026-04-21T12:26:39.960Z",
+      "status": "Delivered",
+      "custName": "bhg",
+      "custPhone": "9625410012",
+      "custAddress": "jaitpur",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "6",
+          "name": "Chicken Zinger Hub",
+          "price": 329,
+          "qty": 1
+        }
+      ],
+      "total": 369
+    },
+    {
+      "id": "PBH-MO8M90XT7D78F6",
+      "createdAt": "2026-04-21T12:44:48.257Z",
+      "status": "Delivered",
+      "custName": "Test User",
+      "custPhone": "9876543210",
+      "custAddress": "Test Address Delhi",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "1",
+          "name": "The Hub Special",
+          "price": 499,
+          "qty": 2
+        }
+      ],
+      "total": 1038,
+      "deliveredAt": "2026-04-21T12:56:00.332Z"
+    },
+    {
+      "id": "PBH-MO8M9QRN964E44",
+      "createdAt": "2026-04-21T12:45:21.731Z",
+      "status": "Delivered",
+      "custName": "Hacker",
+      "custPhone": "9876543210",
+      "custAddress": "Fake addr",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "1",
+          "name": "The Hub Special",
+          "price": 499,
+          "qty": 1
+        }
+      ],
+      "total": 539,
+      "deliveredAt": "2026-04-21T12:55:59.732Z"
+    },
+    {
+      "id": "PBH-MO8MN3OG2631D2",
+      "createdAt": "2026-04-21T12:55:44.992Z",
+      "status": "Delivered",
+      "custName": "Sarthak Shavarn",
+      "custPhone": "9891467021",
+      "custAddress": "nnjyt67yugyu",
+      "type": "delivery",
+      "items": [
+        {
+          "id": "2",
+          "name": "Margherita Hub",
+          "price": 399,
+          "qty": 1
+        }
+      ],
+      "total": 439,
+      "deliveredAt": "2026-04-21T12:55:58.177Z"
     }
   ],
   "bookings": [
@@ -250,6 +415,33 @@
       "timeSlot": "12:00 PM",
       "guests": "3",
       "createdAt": "2026-04-20T18:59:50.909Z"
+    },
+    {
+      "id": "BKN-SYRTF2",
+      "createdAt": "2026-04-21T10:30:41.623Z",
+      "name": "fggt",
+      "phone": "9625410112",
+      "date": "2026-04-23",
+      "timeSlot": "06:00 PM",
+      "guests": "2"
+    },
+    {
+      "id": "BKN-ZYABRY",
+      "createdAt": "2026-04-21T10:53:01.171Z",
+      "name": "hbgyh",
+      "phone": "hgbghb",
+      "date": "2026-04-17",
+      "timeSlot": "12:00 PM",
+      "guests": "2"
+    },
+    {
+      "id": "BKN-MO8M9EBD813E41",
+      "createdAt": "2026-04-21T12:45:05.593Z",
+      "name": "Raj Kumar",
+      "phone": "9998887776",
+      "date": "2026-04-25",
+      "timeSlot": "06:00 PM",
+      "guests": 4
     }
   ],
   "menu": [

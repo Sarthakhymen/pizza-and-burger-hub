@@ -169,10 +169,6 @@ body {
 .time-pill:hover { border-color: var(--accent-gold); }
 .time-pill.selected { background: var(--accent-gold); color: black; border-color: var(--accent-gold); font-weight: 700; }
 
-@media (max-width: 768px) {
-    .heading-luxury { font-size: 2.5rem; }
-    .nav-links { display: none; } /* Mobile Menu should be added later */
-}
 
 /* --- PRODUCTION UX ADDITIONS --- */
 
@@ -452,18 +448,41 @@ img[loading="lazy"] { background: #111; }
 @media (max-width: 992px) {
     .hero-grid { grid-template-columns: 1fr; text-align: center; }
     .hero-content { display: flex; flex-direction: column; align-items: center; }
-    .hero-desc { text-align: center; }
-    .hero-stats { justify-content: center; flex-wrap: wrap; }
-    .visual-container { width: 400px; height: 400px; margin: 40px auto 0; }
-    .rotating-pizza { width: 350px; }
-    .floating-burger { width: 200px; left: -20px; bottom: 0px; }
+    .hero-desc { text-align: center; max-width: 100%; }
+    .hero-stats { justify-content: center; flex-wrap: wrap; gap: 2rem; }
+    .visual-container { width: 350px; height: 350px; margin: 20px auto 40px; }
+    .rotating-pizza { width: 300px; }
+    .floating-burger { width: 180px; left: -10px; bottom: -10px; }
+    .section-padding { padding: 80px 5%; }
+}
+
+@media (max-width: 768px) {
+    .heading-luxury { font-size: 2.8rem; }
+    .navbar { flex-wrap: wrap; justify-content: center; gap: 15px; padding: 1rem 5%; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; }
+    .nav-links a { font-size: 0.8rem; padding: 5px; }
+    .nav-right { display: none; } /* Hide big order button to save space */
+    .hero-section { padding-top: 150px; } /* More space for wrapped navbar */
+    .menu-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .food-card { height: 380px; }
+    .slots-grid { grid-template-columns: repeat(2, 1fr); }
+    
+    .logo { width: 100%; text-align: center; }
+    .visual-container { width: 280px; height: 280px; }
+    .rotating-pizza { width: 250px; }
+    .floating-burger { width: 140px; left: -5px; bottom: 5px; }
+    .pizza-glow { width: 300px; height: 300px; }
 }
 
 @media (max-width: 480px) {
-    .visual-container { width: 300px; height: 300px; }
-    .rotating-pizza { width: 280px; }
-    .floating-burger { width: 160px; left: -10px; bottom: 10px; }
+    .section-padding { padding: 60px 5%; }
     .heading-luxury { font-size: 2.2rem; }
+    .stat-item h3 { font-size: 2rem; }
+    .visual-container { width: 250px; height: 250px; }
+    .rotating-pizza { width: 220px; }
+    .floating-burger { width: 120px; left: -10px; bottom: 10px; }
+    .slots-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; align-items: center; gap: 1.5rem; }
 }
 
 /* --- SCROLL REVEAL ANIMATIONS --- */
@@ -481,4 +500,3 @@ img[loading="lazy"] { background: #111; }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
-

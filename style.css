@@ -518,46 +518,53 @@ img[loading="lazy"] { background: #111; }
     .heading-luxury { font-size: 2.5rem; }
     .navbar { 
         padding: 0.8rem 5%; 
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .nav-links { 
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(20, 20, 20, 0.95);
-        padding: 15px;
-        gap: 0;
-        justify-content: space-around;
-        border-top: 1px solid var(--glass-border);
-        backdrop-filter: blur(20px);
-        z-index: 1001;
-    }
-    .nav-links li { width: auto; }
-    .nav-links a { 
-        font-size: 0.75rem; 
-        padding: 5px; 
-        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 5px;
+        gap: 1rem;
     }
-    .nav-links a::before {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        font-size: 1.2rem;
+    .nav-links { 
+        display: flex;
+        overflow-x: auto;
+        width: 100%;
+        padding: 10px 5px;
+        gap: 2rem;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        border-bottom: 1px solid var(--glass-border);
     }
-    .nav-links a[href*="index"]::before { content: "\f015"; }
-    .nav-links a[href*="menu"]::before { content: "\f2e7"; }
-    .nav-links a[href*="booking"]::before { content: "\f073"; }
-    .nav-links a[href*="orders"]::before { content: "\f46d"; }
+    .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+    
+    .nav-links li { 
+        flex: 0 0 auto;
+    }
+    .nav-links a { 
+        font-size: 0.8rem; 
+        padding: 5px 0;
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .nav-links a::before { display: none !important; }
 
-    .nav-right { display: block; } 
-    .hero-section { padding-top: 100px; padding-bottom: 80px; } 
-    .menu-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
-    .food-card { height: 320px; border-radius: 15px; }
-    .food-card .food-info { padding: 1rem; }
+    .nav-right { display: none; } 
+    .hero-section { padding-top: 150px; padding-bottom: 80px; } 
+    .menu-grid { 
+        display: flex;
+        overflow-x: auto;
+        gap: 1.5rem;
+        padding: 1rem 5%;
+        margin: 0 -5%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .menu-grid::-webkit-scrollbar { display: none; }
+    .food-card { 
+        flex: 0 0 280px;
+        height: 380px; 
+        border-radius: 20px; 
+    }
+    .food-card .food-info { padding: 1.5rem; }
     .food-card h3 { font-size: 1rem; }
     .food-card p { font-size: 0.7rem; }
     .food-card .btn-luxury { padding: 8px 15px; font-size: 0.7rem; }

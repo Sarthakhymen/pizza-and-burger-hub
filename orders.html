@@ -44,6 +44,16 @@
         .tracking-line { position: absolute; top: 0; left: 0; height: 100%; background: var(--accent-gold); z-index: 5; transition: 1s; width: 0%; }
 
         .item-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; opacity: 0.8; }
+        
+        @media (max-width: 768px) {
+            .orders-hero { padding: 120px 0 30px; }
+            .tab-container { gap: 0.5rem; }
+            .tab-btn { padding: 10px 15px; font-size: 0.8rem; flex: 1; }
+            .order-grid { padding: 0 10px; }
+            .order-card-new { padding: 1rem; border-radius: 15px; }
+            .order-card-new h4 { font-size: 0.8rem; }
+            .details-card { padding: 1.5rem; border-radius: 20px; }
+        }
     </style>
 </head>
 <body>

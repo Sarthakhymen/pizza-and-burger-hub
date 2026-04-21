@@ -12,16 +12,28 @@
         .main-menu { flex: 1; }
         .side-cart { width: 380px; position: sticky; top: 120px; }
         
+        .filter-container {
+            display: flex; gap: 1rem; margin-top: 2rem; justify-content: center;
+            overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch;
+        }
+        .filter-container::-webkit-scrollbar { display: none; }
+        
         .filter-pill { 
             padding: 10px 25px; border: 1px solid var(--glass-border); border-radius: 50px; 
             cursor: pointer; transition: 0.3s; background: var(--bg-card); font-size: 0.8rem;
+            white-space: nowrap;
         }
         .filter-pill.active { background: var(--primary-crimson); border-color: var(--primary-crimson); color: white; }
         
         .cart-luxury { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 30px; padding: 2.5rem; backdrop-filter: blur(20px); }
         .cart-item-luxury { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; }
         
-        @media (max-width: 1100px) { .menu-container { flex-direction: column; } .side-cart { width: 100%; position: relative; top: 0; } }
+        @media (max-width: 1100px) { 
+            .menu-container { flex-direction: column-reverse; } 
+            .side-cart { width: 100%; position: relative; top: 0; }
+            .filter-container { justify-content: flex-start; padding: 0 5%; }
+            .cart-luxury { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -41,7 +53,7 @@
         <div style="text-align: center; margin-bottom: 5rem;">
             <span style="color: var(--accent-gold); letter-spacing: 3px;">Freshly Made For You</span>
             <h1 class="heading-luxury">Explore Our <span>Kitchen</span></h1>
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+            <div class="filter-container">
                 <div class="filter-pill active" data-cat="all">Everything</div>
                 <div class="filter-pill" data-cat="pizza">Pizzas</div>
                 <div class="filter-pill" data-cat="burger">Burgers</div>

@@ -20,7 +20,13 @@
         .step-btn { width: 35px; height: 35px; border-radius: 50%; border: none; background: rgba(255,255,255,0.1); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .step-btn:hover { background: var(--primary-crimson); }
         
-        @media (max-width: 900px) { .booking-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { 
+            .booking-grid { grid-template-columns: 1fr; gap: 2rem; } 
+            .booking-form-box { padding: 2rem; border-radius: 25px; }
+            .booking-visual { text-align: center; }
+            .booking-visual p { margin-left: auto; margin-right: auto; }
+            .booking-visual div { justify-content: center; }
+        }
     </style>
 </head>
 <body>

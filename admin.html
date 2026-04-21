@@ -88,7 +88,15 @@
         }
 
         @media print { body * { visibility: hidden; } #bill-print-area, #bill-print-area * { visibility: visible; } #bill-print-area { position: absolute; left: 0; top: 0; width: 100%; display: block !important; color: black !important; } }
-        @media (max-width: 768px) { .sidebar-elite { display: none; } .main-dash { padding: 1.5rem; } }
+        @media (max-width: 768px) { 
+            .sidebar-elite { display: none; } 
+            .main-dash { padding: 1.5rem; } 
+            .order-body { grid-template-columns: 1fr; }
+            .customer-info { border-left: none; border-top: 1px solid var(--glass-border); padding-left: 0; padding-top: 1.5rem; }
+            .stat-box { padding: 1rem; }
+            .stat-box h2 { font-size: 1.2rem; }
+            .main-dash > div:first-child { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        }
     </style>
 </head>
 <body>

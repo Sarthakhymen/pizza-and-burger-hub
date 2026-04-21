@@ -233,10 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+        const gst = Math.round(subtotal * 0.05);
         const delivery = (subtotal > 0 && subtotal < 1000) ? 40 : 0;
+        
         if (subtotalSpan) subtotalSpan.innerText = `₹${subtotal}`;
+        if (document.getElementById('gst-fee')) document.getElementById('gst-fee').innerText = `₹${gst}`;
         if (document.getElementById('delivery-fee')) document.getElementById('delivery-fee').innerText = `₹${delivery}`;
-        if (totalSpan) totalSpan.innerText = `₹${subtotal + delivery}`;
+        if (totalSpan) totalSpan.innerText = `₹${subtotal + gst + delivery}`;
     };
 
     window.updateCartUI();
@@ -278,14 +281,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const subtotal = currentCart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            const gst = Math.round(subtotal * 0.05);
+            const delivery = (subtotal > 0 && subtotal < 1000 && document.getElementById('cust-type').value === 'delivery') ? 40 : 0;
             const orderData = {
                 custName: document.getElementById('cust-name').value.trim(),
                 custPhone: document.getElementById('cust-phone').value.trim(),
                 custAddress: document.getElementById('cust-address').value.trim(),
                 type: document.getElementById('cust-type').value,
                 items: currentCart,
-                total: currentCart.reduce((acc, i) => acc + (i.price * i.qty), 0) + 
-                       (document.getElementById('cust-type').value === 'delivery' ? 40 : 0)
+                total: subtotal + gst + delivery
             };
 
             // Client-side validation

@@ -446,51 +446,235 @@
   ],
   "menu": [
     {
-      "id": "1",
-      "name": "The Hub Special",
-      "price": 499,
+      "id": "101",
+      "name": "Margherita (Reg)",
+      "price": 99,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400",
+      "available": true
+    },
+    {
+      "id": "102",
+      "name": "Margherita (Med)",
+      "price": 200,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400",
+      "available": true
+    },
+    {
+      "id": "103",
+      "name": "Cheese & Tomato Pizza",
+      "price": 150,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400",
+      "available": true
+    },
+    {
+      "id": "104",
+      "name": "Cheese & Capsicum Pizza",
+      "price": 150,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400",
+      "available": true
+    },
+    {
+      "id": "105",
+      "name": "Cheese & Paneer Pizza",
+      "price": 160,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1548369937-47519962c11a?w=400",
+      "available": true
+    },
+    {
+      "id": "106",
+      "name": "Double Cheese Margherita",
+      "price": 270,
       "category": "pizza",
       "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400",
       "available": true
     },
     {
-      "id": "2",
-      "name": "Margherita Hub",
-      "price": 399,
+      "id": "107",
+      "name": "Fresh Veggie Pizza",
+      "price": 150,
       "category": "pizza",
       "img": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400",
       "available": true
     },
     {
-      "id": "3",
-      "name": "Double Cheese Hub",
-      "price": 549,
+      "id": "108",
+      "name": "Country Special Pizza",
+      "price": 150,
       "category": "pizza",
-      "img": "https://images.unsplash.com/photo-1571066811402-9d8d77c84439?w=400",
+      "img": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400",
       "available": true
     },
     {
-      "id": "4",
-      "name": "The Mighty Beef",
-      "price": 349,
+      "id": "109",
+      "name": "Peppy Paneer",
+      "price": 290,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1548369937-47519962c11a?w=400",
+      "available": true
+    },
+    {
+      "id": "110",
+      "name": "Mexican Green Wave",
+      "price": 290,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400",
+      "available": true
+    },
+    {
+      "id": "111",
+      "name": "Farm House Pizza",
+      "price": 290,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400",
+      "available": true
+    },
+    {
+      "id": "112",
+      "name": "Delux Veggie Pizza",
+      "price": 300,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=400",
+      "available": true
+    },
+    {
+      "id": "113",
+      "name": "Veg Special Hub",
+      "price": 300,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400",
+      "available": true
+    },
+    {
+      "id": "114",
+      "name": "Spicy Tandoori Pizza",
+      "price": 320,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400",
+      "available": true
+    },
+    {
+      "id": "115",
+      "name": "Five Pepper Pizza",
+      "price": 320,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1548369937-47519962c11a?w=400",
+      "available": true
+    },
+    {
+      "id": "116",
+      "name": "Veg Supreme",
+      "price": 350,
+      "category": "pizza",
+      "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400",
+      "available": true
+    },
+    {
+      "id": "201",
+      "name": "Cheese Burger",
+      "price": 40,
       "category": "burger",
       "img": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400",
       "available": true
     },
     {
-      "id": "5",
-      "name": "Spicy Paneer Hub",
-      "price": 299,
+      "id": "202",
+      "name": "Extra Cheese Burger",
+      "price": 50,
+      "category": "burger",
+      "img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400",
+      "available": true
+    },
+    {
+      "id": "203",
+      "name": "Spicy Tandoori Burger",
+      "price": 60,
       "category": "burger",
       "img": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400",
       "available": true
     },
     {
-      "id": "6",
-      "name": "Chicken Zinger Hub",
-      "price": 329,
+      "id": "204",
+      "name": "Maharaja Burger",
+      "price": 70,
       "category": "burger",
       "img": "https://images.unsplash.com/photo-1512152272829-e3139592d56f?w=400",
+      "available": true
+    },
+    {
+      "id": "301",
+      "name": "White Cheese Pasta",
+      "price": 100,
+      "category": "pasta",
+      "img": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400",
+      "available": true
+    },
+    {
+      "id": "302",
+      "name": "Mix Cheese Pasta",
+      "price": 100,
+      "category": "pasta",
+      "img": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400",
+      "available": true
+    },
+    {
+      "id": "401",
+      "name": "Stuffed Garlic Bread",
+      "price": 100,
+      "category": "sides",
+      "img": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=400",
+      "available": true
+    },
+    {
+      "id": "402",
+      "name": "Chocolava Cake",
+      "price": 70,
+      "category": "sides",
+      "img": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400",
+      "available": true
+    },
+    {
+      "id": "403",
+      "name": "Calzone Pocket",
+      "price": 100,
+      "category": "sides",
+      "img": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400",
+      "available": true
+    },
+    {
+      "id": "404",
+      "name": "French Fries",
+      "price": 60,
+      "category": "sides",
+      "img": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=400",
+      "available": true
+    },
+    {
+      "id": "405",
+      "name": "Jalapeno Dip",
+      "price": 20,
+      "category": "sides",
+      "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Jalapeno+Dip",
+      "available": true
+    },
+    {
+      "id": "406",
+      "name": "Cheese Dip",
+      "price": 20,
+      "category": "sides",
+      "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cheese+Dip",
+      "available": true
+    },
+    {
+      "id": "501",
+      "name": "Cold Drink (Can)",
+      "price": 40,
+      "category": "beverages",
+      "img": "https://placehold.co/400x300/F39C12/FFF8F0?text=Cold+Drink",
       "available": true
     }
   ]

@@ -415,4 +415,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }, revealOptions);
 
     document.querySelectorAll('.reveal-up').forEach(el => revealOnScroll.observe(el));
+
+    // --- COUNTER ANIMATION ---
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; 
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText.replace(/\D/g, ''); 
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 15);
+            } else {
+                // Add "k" or "+" suffix manually based on target
+                if(target > 1000) {
+                    counter.innerText = (target / 1000) + 'k+';
+                } else if (target % 1 !== 0) {
+                     counter.innerText = target; // For floating like 4.9
+                } else {
+                    counter.innerText = target + '+';
+                }
+            }
+        };
+        // Simple delay to let the page load
+        setTimeout(updateCount, 500);
+    });
 });

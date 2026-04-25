@@ -167,7 +167,8 @@ async function getMenuCached() {
     if (menuCache && (now - menuCacheTime) < MENU_CACHE_TTL) {
         return menuCache;
     }
-    menuCache = await MenuItem.find({}).lean();
+    const rawMenu = await MenuItem.find({}).lean();
+    menuCache = rawMenu.map(i => ({ ...i, id: i.itemId }));
     menuCacheTime = now;
     return menuCache;
 }

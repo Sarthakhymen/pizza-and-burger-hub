@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Pizza & Burger Hub | Best Fast Food in Town</title>
+    <meta name="description" content="India ka apna fast food joint. Garma-garam Pizza aur Juicy Burgers ab seedha aapke ghar!">
+    <meta name="theme-color" content="#0f0f0f">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="/socket.io/socket.io.js"></script>
@@ -12,7 +14,10 @@
 
     <nav class="navbar">
         <div class="logo">PIZZA & BURGER <span>HUB</span></div>
-        <ul class="nav-links">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="menu.html">Our Menu</a></li>
             <li><a href="booking.html">Book a Table</a></li>
@@ -24,7 +29,6 @@
     </nav>
 
     <header class="section-padding hero-section">
-        <!-- New Background Effect -->
         <div class="hero-bg"></div>
         <div class="hero-grid">
             <div class="hero-content">
@@ -36,11 +40,10 @@
                     </div>
                     <div class="namaste-text">नमस्ते</div>
                 </div>
-                <!-- <span class="dil-se-tag">Dil se Banaya, Swad ka Tadka</span> -->
                 <h1 class="heading-luxury">Welcome to <br><span class="highlight-crimson">Hub of Taste</span></h1>
                 <p class="hero-desc">India ka apna fast food joint. Garma-garam Pizza aur Juicy Burgers ab seedha aapke ghar! Fresh ingredients aur desi swad ki 100% guarantee.</p>
                 
-                <div style="display: flex; gap: 1.5rem; margin-top: 1rem;">
+                <div class="hero-buttons">
                     <a href="menu.html" class="btn-luxury">See Our Menu</a>
                     <a href="booking.html" class="btn-luxury btn-outline">Book a Table</a>
                 </div>
@@ -52,17 +55,11 @@
                 </div>
             </div>
 
-            <!-- Rotating Pizza & Floating Burger -->
             <div class="hero-visuals">
                 <div class="visual-container">
-                    <!-- Base glow behind pizza -->
                     <div class="pizza-glow"></div>
                     <img src="pizza.png" alt="Delicious Pizza" class="rotating-pizza">
-                    
-                    <!-- Floating Burger intersecting the pizza -->
                     <img src="burger.png" alt="Juicy Burger" class="floating-burger">
-                    
-                    <!-- Little floating elements (leaves/chili) -->
                     <div class="float-element leaf1">🌿</div>
                     <div class="float-element chili1">🌶️</div>
                 </div>
@@ -70,13 +67,13 @@
         </div>
     </header>
 
-    <section class="section-padding">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem;">
+    <section class="section-padding" id="popular-section">
+        <div class="section-header">
             <div>
                 <span style="color: var(--primary-crimson); font-weight: 600;">People's Favorite</span>
-                <h2 style="font-size: 2.5rem;">Most Ordered Items</h2>
+                <h2 class="section-title">Most Ordered Items</h2>
             </div>
-            <a href="menu.html" style="color: var(--accent-gold); text-decoration: none; border-bottom: 1px solid;">View Full Menu</a>
+            <a href="menu.html" class="view-all-link">View Full Menu</a>
         </div>
 
         <div class="menu-grid">
@@ -112,6 +109,7 @@
                         <a href="menu.html" class="btn-luxury" style="padding: 10px 20px;">Order Now</a>
                     </div>
                 </div>
+            </div>
             <div class="glass-card food-card">
                 <img src="https://images.unsplash.com/photo-1548369937-47519962c11a?w=400" alt="Peppy Paneer">
                 <div class="food-info">
@@ -126,22 +124,22 @@
         </div>
     </section>
 
-    <section class="section-padding" style="background: rgba(255,255,255,0.02);">
-        <center>
+    <section class="section-padding cta-section">
+        <div class="cta-content">
             <span style="color: var(--accent-gold);">Party or Date?</span>
-            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Book Your Table Now</h2>
-            <p style="max-width: 600px; color: var(--text-dim); margin-bottom: 3rem;">Line mein khade rehne ki zaroorat nahi. Pehle se table book karein aur sukoon se khayein.</p>
+            <h2 class="cta-heading">Book Your Table Now</h2>
+            <p class="cta-desc">Line mein khade rehne ki zaroorat nahi. Pehle se table book karein aur sukoon se khayein.</p>
             <a href="booking.html" class="btn-luxury">Click here to Book</a>
-        </center>
+        </div>
     </section>
 
-    <footer class="section-padding" style="border-top: 1px solid var(--glass-border); text-align: center;">
+    <footer class="section-padding site-footer">
         <div class="logo" style="margin-bottom: 2rem;">PIZZA & BURGER <span>HUB</span></div>
         <p style="color: var(--text-dim); margin-bottom: 1rem;">Taste waisa, jo yaad rahe hamesha!</p>
-        <p style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+        <p class="footer-address">
             📍 Plot No. A-7, opposite Axis bank atm, Saurabh Vihar, Jaitpur, New Delhi, Delhi 110044
         </p>
-        <div style="display: flex; justify-content: center; gap: 2rem;">
+        <div class="social-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -149,6 +147,43 @@
         <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.3;">&copy; 2026 Pizza & Burger Hub. Built for the Foodies.</p>
     </footer>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="menu.html" class="bottom-nav-item">
+            <i class="fas fa-utensils"></i>
+            <span>Menu</span>
+        </a>
+        <a href="booking.html" class="bottom-nav-item">
+            <i class="fas fa-calendar-check"></i>
+            <span>Book</span>
+        </a>
+        <a href="orders.html" class="bottom-nav-item">
+            <i class="fas fa-box"></i>
+            <span>Orders</span>
+        </a>
+    </nav>
+
     <script src="script.js"></script>
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('mobile-open');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
+                });
+            });
+        }
+    </script>
 </body>
 </html>

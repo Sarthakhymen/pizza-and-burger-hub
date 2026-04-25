@@ -33,7 +33,10 @@
 
     <nav class="navbar">
         <div class="logo">PIZZA & BURGER <span>HUB</span></div>
-        <ul class="nav-links">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="booking.html" class="active">Booking</a></li>
@@ -95,6 +98,43 @@
         </div>
     </div>
 
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="menu.html" class="bottom-nav-item">
+            <i class="fas fa-utensils"></i>
+            <span>Menu</span>
+        </a>
+        <a href="booking.html" class="bottom-nav-item active">
+            <i class="fas fa-calendar-check"></i>
+            <span>Book</span>
+        </a>
+        <a href="orders.html" class="bottom-nav-item">
+            <i class="fas fa-box"></i>
+            <span>Orders</span>
+        </a>
+    </nav>
+
     <script src="script.js"></script>
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('mobile-open');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
+                });
+            });
+        }
+    </script>
 </body>
 </html>

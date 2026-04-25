@@ -1,4 +1,6 @@
 node_modules/
-.DS_Store
-db.json
 .env
+db.json
+db.json.tmp
+*.log
+.DS_Store

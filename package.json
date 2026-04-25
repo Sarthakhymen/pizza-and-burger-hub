@@ -1,20 +1,26 @@
 {
   "name": "pizza-burger-hub",
-  "version": "2.0.0",
-  "description": "Production-ready Pizza and Burger Hub with scalable backend",
+  "version": "3.0.0",
+  "description": "Pizza & Burger Hub - Cloud Production Server with MongoDB Atlas",
   "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "seed": "node seed.js",
     "health": "curl http://localhost:5500/api/health"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^4.18.2",
+    "express-rate-limit": "^7.5.1",
+    "mongoose": "^8.23.1",
     "socket.io": "^4.7.2"
   },
-  "devDependencies": {
-    "nodemon": "^3.1.14"
+  "optionalDependencies": {
+    "@sentry/node": "^8.0.0"
   }
 }

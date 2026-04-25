@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pizza-burger-hub
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: ADMIN_PIN
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
